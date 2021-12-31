@@ -3,8 +3,12 @@ const booksRouter = express.Router();
 // const books = require('../data/books');
 const bookdata = require('../model/BookModel');
 
+// Part #2 Point 9 
+const methodOverride = require('method-override');
+const app = new express; 
+app.use(methodOverride('_method'));
 
-
+function router(nav){
 
 //router to render books page
 booksRouter.get('/',function(req,res){
@@ -17,7 +21,7 @@ booksRouter.get('/',function(req,res){
     });
 
     })
-})
+});
 
 
 
@@ -111,9 +115,11 @@ booksRouter.put('/update', function (req, res) {//Part #2 Point 9
     }) 
 })
 
+return booksRouter;
+
+}
 
 
 
 
-
-module.exports = booksRouter;
+module.exports = Router;

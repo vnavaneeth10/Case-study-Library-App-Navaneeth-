@@ -3,7 +3,11 @@ const authorsRouter = express.Router();
 // const authors = require('../data/authors');
 const authordata = require('../model/AuthorModel');
 
+const methodOverride = require('method-override');
+const app = new express; 
+app.use(methodOverride('_method'));
 
+function router(nav){
 
 //router to render authors page
 authorsRouter.get('/',function(req,res){
@@ -12,6 +16,7 @@ authorsRouter.get('/',function(req,res){
     .then(function (authors) {
 
     res.render('authors',{
+        nav,
         authors
     });
 
@@ -22,7 +27,7 @@ authorsRouter.get('/',function(req,res){
 
 //router to render add author page
 authorsRouter.get('/addauthor',function(req,res){
-    res.render('addauthor',{});
+    res.render('addauthor',{nav});
 
 });
 
@@ -111,7 +116,9 @@ authorsRouter.post('/update', function (req, res) {//Part #2 Point 9
     })  
 })
 
+return authorsRouter;
 
+}
 
 
 
