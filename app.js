@@ -3,13 +3,7 @@ const path = require ('path');
 const cors = require('cors');
 const bodyParser = require('body-parser'); //Part #1 Point 2
 
-
-
-
-
-
 const nav = require('./src/data/nav'); //Part #2 Point 6
-
 
 const loginRouter = require('./src/routes/loginroute');
 const signupRouter = require('./src/routes/signuproute');
@@ -43,13 +37,20 @@ app.get('/',function(req,res){
 
 });       
     
-    
-
-
-
-
-
-
 app.listen(5000,()=>{
     console.log("Server Ready on 5000");//Part #1 Point 5
-});
+});   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
