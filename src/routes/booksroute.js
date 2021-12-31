@@ -3,12 +3,7 @@ const booksRouter = express.Router();
 // const books = require('../data/books');
 const bookdata = require('../model/BookModel');
 
-// Part #2 Point 9 
-const methodOverride = require('method-override');
-const app = new express; 
-app.use(methodOverride('_method'));
 
-function router(nav){
 
 //router to render books page
 booksRouter.get('/',function(req,res){
@@ -69,11 +64,11 @@ booksRouter.get('/:id',function(req,res){
 
 
 //router to delete book
-booksRouter.delete('/delete', function (req, res) {//#2 Point 9
+booksRouter.post('/delete', function (req, res) {//Part #2 Point 9
 
     const id = req.body.id;  
 
-    bookdata.findOneAndDelete({ _id: id })
+    bookdata.deleteOne({ _id: id })
         .then(function () {
 
             res.redirect('/books')
@@ -99,7 +94,7 @@ booksRouter.post('/edit', function (req, res) {
 
 
 //router to update book
-booksRouter.put('/update', function (req, res) {//Part #2 Point 9
+booksRouter.post('/update', function (req, res) {//Part #2 Point 9
 
     bookdata.findByIdAndUpdate(req.body.id, { $set: req.body }, function (err, data) {
         if (err) {
@@ -115,11 +110,8 @@ booksRouter.put('/update', function (req, res) {//Part #2 Point 9
     }) 
 })
 
-return booksRouter;
-
-}
 
 
 
 
-module.exports = Router;
+module.exports = booksRouter;
