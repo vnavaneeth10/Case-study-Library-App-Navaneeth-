@@ -7,11 +7,13 @@ const nav = require('./src/data/nav'); //Part #2 Point 6
 
 const loginRouter = require('./src/routes/loginroute');
 const signupRouter = require('./src/routes/signuproute');
-const homeRouter = require('./src/routes/homeroute'); //Part #1 Point 3
+const homeRouter = require('./src/routes/homerouter')(nav); //Part #1 Point 3
 const booksRouter = require('./src/routes/booksroute')(nav);
 const authorsRouter = require('./src/routes/authorsroute')(nav);
 
 const app = new express; 
+
+app.use(cors()); //Part #2 Point 7
 
 
 app.set('views','./src/views'); 
@@ -21,7 +23,7 @@ app.set('view engine','ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname , '/public'))); 
-app.use(cors()); //Part #2 Point 7
+
 
 app.use('/login',loginRouter); 
 app.use('/signup',signupRouter); 
@@ -37,10 +39,13 @@ app.get('/',function(req,res){
 
 });       
     
-app.listen(5000,()=>{
-    console.log("Server Ready on 5000");//Part #1 Point 5
-});   
+// app.listen(5000,()=>{
+//     console.log("Server Ready on 5000");//Part #1 Point 5
+// });   
 
+app.listen(process.env.PORT || 5000,()=>{
+    console.log("Server Ready on 5000");//Part #1 Point 5
+});  
 
 
 
