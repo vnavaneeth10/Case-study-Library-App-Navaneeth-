@@ -4,24 +4,24 @@ const cors = require('cors');
 const bodyParser = require('body-parser'); //Part #1 Point 2
 
 
-const nav= [
-    {
-        link:"/books",
-        title:"Books"
-    },
-    {
-        link:"/authors",
-        title:"Authors"
-    },
-    {
-        link:"/addbook",
-        title:"Add Book"
-    },
-    {
-        link:"/addauthor",
-        title:"Add Author"
-    }
-]
+// const nav= [
+//     {
+//         link:"/books",
+//         title:"Books"
+//     },
+//     {
+//         link:"/authors",
+//         title:"Authors"
+//     },
+//     {
+//         link:"/addbook",
+//         title:"Add Book"
+//     },
+//     {
+//         link:"/addauthor",
+//         title:"Add Author"
+//     }
+// ]
 
 
 
