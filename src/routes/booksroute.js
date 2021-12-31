@@ -3,7 +3,7 @@ const booksRouter = express.Router();
 // const books = require('../data/books');
 const bookdata = require('../model/BookModel');
 
-function router(nav){   // nav function is called + added
+
 
 
 //router to render books page
@@ -111,12 +111,9 @@ booksRouter.put('/update', function (req, res) {//Part #2 Point 9
     }) 
 })
 
-// return booksRouter
- }
 
 
 
 
 
 module.exports = booksRouter;
-//module.exports = router; + added

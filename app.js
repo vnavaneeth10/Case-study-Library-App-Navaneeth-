@@ -4,24 +4,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser'); //Part #1 Point 2
 
 
-// const nav= [
-//     {
-//         link:"/books",
-//         title:"Books"
-//     },
-//     {
-//         link:"/authors",
-//         title:"Authors"
-//     },
-//     {
-//         link:"/addbook",
-//         title:"Add Book"
-//     },
-//     {
-//         link:"/addauthor",
-//         title:"Add Author"
-//     }
-// ]
 
 
 
@@ -32,8 +14,8 @@ const nav = require('./src/data/nav'); //Part #2 Point 6
 const loginRouter = require('./src/routes/loginroute');
 const signupRouter = require('./src/routes/signuproute');
 const homeRouter = require('./src/routes/homeroute'); //Part #1 Point 3
-const booksRouter = require('./src/routes/booksroute');
-const authorsRouter = require('./src/routes/authorsroute');
+const booksRouter = require('./src/routes/booksroute')(nav);
+const authorsRouter = require('./src/routes/authorsroute')(nav);
 
 const app = new express; 
 
@@ -49,7 +31,7 @@ app.use(cors()); //Part #2 Point 7
 
 app.use('/login',loginRouter); 
 app.use('/signup',signupRouter); 
-app.use('/home',homeRouter); 
+app.use('/home',homeRouter);
 app.use('/books',booksRouter); 
 app.use('/authors',authorsRouter); 
 
@@ -57,13 +39,12 @@ app.use('/authors',authorsRouter);
 
 app.get('/',function(req,res){
 
-    res.render('index',{
+    res.render('index',{});
 
-        // nav,
-        // title: "Library"
-    });
+});       
     
-});
+    
+
 
 
 

@@ -16,4 +16,4 @@ var users=[{
 ]
 
 
-module.exports=user; //Part #1 Point 4
+module.exports=users; //Part #1 Point 4
