@@ -14,7 +14,7 @@ authorsRouter.get('/',function(req,res){
     .then(function (authors) {
 
     res.render('authors',{
-        nav,
+        
         authors
     });
 
@@ -37,7 +37,7 @@ authorsRouter.post('/add', function (req, res) {
 
     var item={
         title:req.body.title,
-        image:req.body.images,//Part #2 Point 8
+        image:req.body.image,//Part #2 Point 8
         about:req.body.about
     }
     console.log(item)  ;
